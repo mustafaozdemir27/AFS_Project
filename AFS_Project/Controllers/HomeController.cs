@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,20 @@ namespace AFS_Project.Controllers
 {
     public class HomeController : Controller
     {
+        ISearchLogService _searchLogService;
+
+        public HomeController(ISearchLogService searchLogService)
+        {
+            _searchLogService = searchLogService;
+        }
+
         public ActionResult Index()
         {
+            var result = _searchLogService.GetAll();
+            if (result.Success)
+            {
+                return View(result.Data);
+            }
             return View();
         }
 

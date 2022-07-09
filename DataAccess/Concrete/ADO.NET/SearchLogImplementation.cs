@@ -8,10 +8,33 @@ using System.Data.SqlClient;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
-namespace DataAccess.Concrete.ADO
+namespace DataAccess.Concrete.ADONET
 {
-    class SearchLogImplementation : ISearchLogDal
+    public class SearchLogImplementation : ISearchLogDal
     {
+        public void Add(SearchLog entity)
+        {
+
+            string constr = @"Server=(localdb)\mssqllocaldb;Database=Afs_Project_Db;Trusted_Connection=true";
+            DataTable dt = new DataTable();
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("InsertSearchLog"))
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = entity.UserName;
+                    cmd.Parameters.Add("@InputText", SqlDbType.VarChar).Value = entity.InputText;
+                    cmd.Parameters.Add("@TranslatedText", SqlDbType.VarChar).Value = entity.TranslatedText;
+                    cmd.Parameters.Add("@CreatedDate", SqlDbType.VarChar).Value = entity.CreatedDate;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(dt);
+                    }
+                }
+            }
+        }
+
         public List<SearchLog> GetAll()
         {
             List<SearchLog> list = new List<SearchLog>();
@@ -45,11 +68,6 @@ namespace DataAccess.Concrete.ADO
             }
 
             return list;
-        }
-
-        public List<SearchLog> GetByCriterion(SearchLog entity)
-        {
-            throw new NotImplementedException();
         }
     }
 }
