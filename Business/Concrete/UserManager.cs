@@ -19,7 +19,8 @@ namespace Business.Concrete
 
         public IDataResult<User> Get(string userName, string password)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_userDal.Get(userName, password));
         }
+
     }
 }

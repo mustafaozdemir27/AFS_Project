@@ -4,6 +4,8 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.ADONET;
+using DataAccess.Services.FunTranslationService.Common;
+using DataAccess.Services.FunTranslationService.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +26,11 @@ namespace AFS_Project
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<SearchLogManager>().As<ISearchLogService>();
-            builder.RegisterType<SearchLogImplementation>().As<ISearchLogDal>();
+            builder.RegisterType<SearchLogDal>().As<ISearchLogDal>();
+
+            builder.RegisterType<FunTranslationService>().As<IFunTranslationService>();
+            builder.RegisterType<UserManager>().As<IUserService>();
+            builder.RegisterType<UserDal>().As<IUserDal>();
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

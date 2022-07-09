@@ -7,6 +7,6 @@ namespace DataAccess.Abstract
 {
     public interface IUserDal
     {
-        User Get(User entity);
+        User Get(string userName ,string password);
     }
 }

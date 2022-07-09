@@ -21,6 +21,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+
         public IDataResult<List<SearchLog>> GetAll()
         {
             return new SuccessDataResult<List<SearchLog>>(_searchLogDal.GetAll());

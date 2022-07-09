@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.ADONET
 {
-    public class UserImplemantatiton : IUserDal
+    public class UserDal : IUserDal
     {
-        public User Get(User entity)
+        public User Get(string userName, string password)
         {
             User user = null;
-            string constr = @"Server=(localdb)\mssqllocaldb;Database=Afs_Project_Db;Trusted_Connection=true";
+            string constr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -24,8 +25,8 @@ namespace DataAccess.Concrete.ADONET
                 {
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = entity.UserName;
-                    cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = entity.Password;
+                    cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = userName;
+                    cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {                      
                         sda.Fill(dt);

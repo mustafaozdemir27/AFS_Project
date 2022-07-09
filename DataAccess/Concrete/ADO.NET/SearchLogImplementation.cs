@@ -7,15 +7,16 @@ using System.Data;
 using System.Data.SqlClient;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using System.Configuration;
 
 namespace DataAccess.Concrete.ADONET
 {
-    public class SearchLogImplementation : ISearchLogDal
+    public class SearchLogDal : ISearchLogDal
     {
         public void Add(SearchLog entity)
         {
 
-            string constr = @"Server=(localdb)\mssqllocaldb;Database=Afs_Project_Db;Trusted_Connection=true";
+            string constr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -39,7 +40,7 @@ namespace DataAccess.Concrete.ADONET
         {
             List<SearchLog> list = new List<SearchLog>();
 
-            string constr = @"Server=(localdb)\mssqllocaldb;Database=Afs_Project_Db;Trusted_Connection=true";
+            string constr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(constr))
             {
