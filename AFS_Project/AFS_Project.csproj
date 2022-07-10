@@ -156,10 +156,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Translate.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Implementation\SessionRepository.cs" />
+    <Compile Include="Repositories\ISessionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\styles\css\datatables.css" />
+    <Content Include="assets\styles\css\datatables.min.css" />
+    <Content Include="assets\styles\css\font-awesome.css" />
+    <Content Include="assets\styles\css\style-2.css" />
+    <Content Include="assets\styles\css\style.css" />
+    <Content Include="assets\styles\images\banner.jpg" />
+    <Content Include="assets\styles\images\bg.jpg" />
+    <Content Include="assets\styles\js\datatables.js" />
+    <Content Include="assets\styles\js\datatables.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -170,6 +182,11 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="assets\styles\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\styles\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\styles\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\styles\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\styles\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -180,6 +197,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="assets\styles\js\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -192,9 +210,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,7 +23,7 @@ namespace AFS_Project.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoginUser(string userName, string password)
+        public ActionResult LoginUser(string username, string password)
         {
             return View();
         }

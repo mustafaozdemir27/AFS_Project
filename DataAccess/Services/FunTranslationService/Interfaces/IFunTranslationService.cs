@@ -1,4 +1,5 @@
-﻿using DataAccess.Services.FunTranslationService.Models;
+﻿using Core.Utilities.Results;
+using DataAccess.Services.FunTranslationService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

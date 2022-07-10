@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Business.Abstract;
+using Core.Utilities.Results;
+using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +11,30 @@ namespace AFS_Project.Controllers
 {
     public class AdminController : Controller
     {
+        ISearchLogService _searchLogService;
+
+        public AdminController(ISearchLogService searchLogService)
+        {
+            _searchLogService = searchLogService;
+        }
+
+
         // GET: Admin
+     
         public ActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult GetInfo(string text)
+
+        public JsonResult GetSearchLogs()
         {
-            return View();
+            var result = _searchLogService.GetAll();
+            if (result.Success)
+            {
+                return Json(result.Data,JsonRequestBehavior.AllowGet);
+            }
+
+            return Json("Hata",JsonRequestBehavior.DenyGet);
         }
     }
 }

@@ -13,6 +13,6 @@ namespace Entities.Concrete
         public string TranslatedText { get; set; }
         public string UserName { get; set; }
         public string TranslationType { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public string CreatedDate { get; set; }
     }
 }

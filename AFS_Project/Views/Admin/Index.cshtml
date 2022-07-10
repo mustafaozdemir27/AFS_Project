@@ -1,7 +1,49 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+
+<body>
+    <table id="searchLogTable" class="display" style="width:100%;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>InputText</th>
+                <th>TranslatedText</th>
+                <th>UserName</th>
+                <th>TranslationType</th>
+                <th>CreatedDate</th>
+            </tr>
+        </thead>
+
+    </table>
+    <script>
+        $(document).ready(function () {
+            $.noConflict();
+            $.ajax({
+                url: "/Admin/GetSearchLogs",
+                method: "GET",
+                contentType: 'application/json'
+
+            }).done(function (data) {
+                $('#searchLogTable').DataTable({
+                    "aaData": data,
+                    "columns": [
+                        { "data": "Id" },
+                        { "data": "InputText" },
+                        { "data": "TranslatedText" },
+                        { "data": "UserName" },
+                        { "data": "TranslationType" },
+                        { "data": "CreatedDate" }
+                    ]
+                })
+            })
+        })
+    </script>
+</body>
+
+
+
 

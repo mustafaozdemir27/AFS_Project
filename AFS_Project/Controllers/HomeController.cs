@@ -1,4 +1,5 @@
-﻿using Business.Abstract;
+﻿using AFS_Project.Models;
+using Business.Abstract;
 using DataAccess.Services.FunTranslationService.Common;
 using DataAccess.Services.FunTranslationService.Interfaces;
 using DataAccess.Services.FunTranslationService.Models;
@@ -12,26 +13,30 @@ namespace AFS_Project.Controllers
 {
     public class HomeController : Controller
     {
-        ISearchLogService _searchLogService;
         IFunTranslationService _funTranslationService;
 
-        public HomeController(ISearchLogService searchLogService, IFunTranslationService funTranslationService)
+        public HomeController( IFunTranslationService funTranslationService)
         {
-            _searchLogService = searchLogService;
             _funTranslationService = funTranslationService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(Translate model)
         {
-            var result = _searchLogService.GetAll();
-            var returnModel = new FunTranslationService();
-            var serviceResult = _funTranslationService.GetResponse(new RequestModel { Text = "Merhaba televole" });
-            if (result.Success)
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Translate(string inputText)
+        {
+            var model = new Translate();
+            var translationResult = _funTranslationService.GetResponse(new RequestModel { Text = inputText });
+            if (!string.IsNullOrWhiteSpace(translationResult.Contents.Translated))
             {
-                return View(result.Data);
+                model.TranslatedText = "Mustafa";
+
+                return RedirectToAction("Index", model);
             }
             return View();
         }
-
     }
 }

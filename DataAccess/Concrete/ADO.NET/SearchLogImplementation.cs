@@ -63,7 +63,7 @@ namespace DataAccess.Concrete.ADONET
                 log.TranslatedText = row["TranslatedText"].ToString();
                 log.TranslationType = row["TranslationType"].ToString();
                 log.UserName = row["Username"].ToString();
-                log.CreatedDate = Convert.ToDateTime(row["CreatedDate"]);
+                log.CreatedDate = row["CreatedDate"].ToString();
 
                 list.Add(log);
             }
