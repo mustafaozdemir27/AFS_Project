@@ -14,7 +14,7 @@ namespace DataAccess.Services.FunTranslationService.Common
     {
         public ResponseModel GetResponse(RequestModel request)
         {
-            return RequestHelper.RequestClient<ResponseModel>(Method.POST, "/yoda.json", request);
+            return RequestHelper.RequestClient<ResponseModel>(Method.POST, "/yoda.json", request); 
         }
     }
 }
