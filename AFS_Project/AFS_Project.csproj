@@ -189,6 +189,7 @@
     <Content Include="assets\styles\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\styles\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\styles\fonts\FontAwesome.otf" />
+    <Content Include="Afs_Project_Db.bak" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
