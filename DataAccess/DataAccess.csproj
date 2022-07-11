@@ -81,7 +81,6 @@
   <ItemGroup>
     <Compile Include="Abstract\ISearchLogDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
-    <Compile Include="Abstract\IUserRoleDal.cs" />
     <Compile Include="Concrete\ADO.NET\SearchLogDal.cs" />
     <Compile Include="Concrete\ADO.NET\UserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
