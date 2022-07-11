@@ -42,11 +42,12 @@ namespace AFS_Project.Controllers
             {
                 var logResult = _searchLogService.Add(new SearchLog
                 {
-                    CreatedDate = DateTime.Now.ToString(),
+                    
                     InputText = inputText,
                     TranslatedText = translationResult.Contents.Translated,
                     TranslationType = translationResult.Contents.Translation,
-                    UserName = Session["UserName"].ToString()
+                    UserName = Session["UserName"].ToString(),
+                    CreatedDate = DateTime.Now.ToString()
 
                 });
                 if (logResult.Success)
