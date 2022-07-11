@@ -8,12 +8,15 @@
 <body>
     <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Yodish Translator</h1>
     <div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
-        <form action="Home/Translate" method="post" class="form-agileits">
+        <form action="@Url.Action("Translate","Home")" method="post" class="form-agileits">
             <h2>Translate</h2>
-            <input type="text" id="username" name="username" disabled value="Mustafa">
-            <textarea id="message" name="inputText" placeholder="YOUR MESSAGE" title="Please enter Your Input Text">@(Model!= null ? Model.InputText : "")</textarea>
-            <textarea id="message" name="translatedText" placeholder="Translated Text" title="Translated Text" disabled>@(Model!= null ? Model.TranslatedText : "")</textarea>
-            <input type="submit" class="sign-in" value="Submit">
+
+                <input type="text" id="username" name="username" disabled value="@ViewBag.UserName">
+                <textarea id="message" name="inputText" placeholder="YOUR MESSAGE" title="Please enter Your Input Text">@Model.InputText</textarea>
+                <textarea id="message" name="translatedText" placeholder="Translated Text" title="Translated Text" disabled>@Model.TranslatedText</textarea>
+                <input type="submit" class="sign-in" value="Submit">
+
+
         </form>
     </div>
 </body>

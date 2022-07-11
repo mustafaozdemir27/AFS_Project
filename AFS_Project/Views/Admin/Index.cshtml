@@ -4,45 +4,76 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <body>
-    <table id="searchLogTable" class="display" style="width:100%;">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>InputText</th>
-                <th>TranslatedText</th>
-                <th>UserName</th>
-                <th>TranslationType</th>
-                <th>CreatedDate</th>
-            </tr>
-        </thead>
 
-    </table>
-    <script>
-        $(document).ready(function () {
-            $.noConflict();
-            $.ajax({
-                url: "/Admin/GetSearchLogs",
-                method: "GET",
-                contentType: 'application/json'
 
-            }).done(function (data) {
-                $('#searchLogTable').DataTable({
-                    "aaData": data,
-                    "columns": [
-                        { "data": "Id" },
-                        { "data": "InputText" },
-                        { "data": "TranslatedText" },
-                        { "data": "UserName" },
-                        { "data": "TranslationType" },
-                        { "data": "CreatedDate" }
-                    ]
-                })
+
+    <div class="col">
+
+        <div class="row">
+            <h1>
+                Welcome Dear Admin @ViewBag.UserName
+            </h1>
+        </div>
+        <br />
+
+        <div class="row">
+            <button onclick="ShowTable()">
+                Show SearchingLog Table
+            </button>
+        </div>
+        <br />
+
+        <div class="row">
+            <table id="searchLogTable" class="display" style="width:100%; visibility:hidden;">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>InputText</th>
+                        <th>TranslatedText</th>
+                        <th>UserName</th>
+                        <th>TranslationType</th>
+                        <th>CreatedDate</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $.noConflict();
+        $.ajax({
+            url: "/Admin/GetSearchLogs",
+            method: "GET",
+            contentType: 'application/json'
+
+        }).done(function (data) {
+            $('#searchLogTable').DataTable({
+                "aaData": data,
+                "columns": [
+                    { "data": "Id" },
+                    { "data": "InputText" },
+                    { "data": "TranslatedText" },
+                    { "data": "UserName" },
+                    { "data": "TranslationType" },
+                    { "data": "CreatedDate" }
+                ]
             })
         })
-    </script>
-</body>
+    })
+    function ShowTable() {
+        var x = document.getElementById("searchLogTable");
+        if (x.style.visibility === "hidden") {
+            x.style.visibility = "visible";
+        } else {
+            x.style.display = "hidden";
+        }
+    }
+
+</script>
 
 
 

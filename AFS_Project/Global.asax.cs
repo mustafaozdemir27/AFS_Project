@@ -1,4 +1,6 @@
-﻿using Autofac;
+﻿using AFS_Project.Repositories.Abstract;
+using AFS_Project.Repositories.Concrete;
+using Autofac;
 using Autofac.Integration.Mvc;
 using Business.Abstract;
 using Business.Concrete;
@@ -31,6 +33,7 @@ namespace AFS_Project
             builder.RegisterType<FunTranslationService>().As<IFunTranslationService>();
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<UserDal>().As<IUserDal>();
+            builder.RegisterType<SessionRepository>().As<ISessionRepository>();
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

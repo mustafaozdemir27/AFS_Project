@@ -82,14 +82,17 @@
     <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Concrete\SearchLogManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
-    <Compile Include="Constants\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Results\DataResult.cs" />
+    <Compile Include="Utilities\Results\ErrorDataResult.cs" />
+    <Compile Include="Utilities\Results\ErrorResult.cs" />
+    <Compile Include="Utilities\Results\IDataResult.cs" />
+    <Compile Include="Utilities\Results\IResult.cs" />
+    <Compile Include="Utilities\Results\Result.cs" />
+    <Compile Include="Utilities\Results\SuccessDataResult.cs" />
+    <Compile Include="Utilities\Results\SuccessResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{EE7CBD70-C551-4791-96B8-17CCE1D3A1E4}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{F9821B61-AE1E-42B8-872D-7B30B5EF4EA6}</Project>
       <Name>DataAccess</Name>

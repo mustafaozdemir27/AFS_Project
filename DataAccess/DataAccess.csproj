@@ -82,8 +82,8 @@
     <Compile Include="Abstract\ISearchLogDal.cs" />
     <Compile Include="Abstract\IUserDal.cs" />
     <Compile Include="Abstract\IUserRoleDal.cs" />
-    <Compile Include="Concrete\ADO.NET\SearchLogImplementation.cs" />
-    <Compile Include="Concrete\ADO.NET\UserImplemantatiton.cs" />
+    <Compile Include="Concrete\ADO.NET\SearchLogDal.cs" />
+    <Compile Include="Concrete\ADO.NET\UserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FunTranslationService\Common\FunTranslationService.cs" />
     <Compile Include="Services\FunTranslationService\Helper\RequestHelper.cs" />
@@ -92,10 +92,6 @@
     <Compile Include="Services\FunTranslationService\Models\ResponseModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{EE7CBD70-C551-4791-96B8-17CCE1D3A1E4}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{9D4740BE-555C-4072-9188-0B6EFE71A2E3}</Project>
       <Name>Entities</Name>

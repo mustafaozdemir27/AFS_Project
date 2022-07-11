@@ -27,6 +27,7 @@ namespace DataAccess.Concrete.ADONET
                     cmd.Parameters.Add("@Username", SqlDbType.VarChar).Value = entity.UserName;
                     cmd.Parameters.Add("@InputText", SqlDbType.VarChar).Value = entity.InputText;
                     cmd.Parameters.Add("@TranslatedText", SqlDbType.VarChar).Value = entity.TranslatedText;
+                    cmd.Parameters.Add("@TranslationType", SqlDbType.VarChar).Value = entity.TranslationType;
                     cmd.Parameters.Add("@CreatedDate", SqlDbType.VarChar).Value = entity.CreatedDate;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {

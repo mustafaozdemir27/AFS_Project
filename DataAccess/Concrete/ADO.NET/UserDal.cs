@@ -36,11 +36,13 @@ namespace DataAccess.Concrete.ADONET
             
             if(dt != null && dt.Rows.Count > 0)
             {
-                user = new User();
-                user.Id = Convert.ToInt32(dt.Rows[0]["Id"]);
-                user.Password = dt.Rows[0]["Password"].ToString();
-                user.UserName = dt.Rows[0]["Username"].ToString();
-                user.UserRole = new UserRole { Id = Convert.ToInt32(dt.Rows[0]["RoleId"]), RoleName = dt.Rows[0]["RoleName"].ToString()};
+                user = new User
+                {
+                    Id = Convert.ToInt32(dt.Rows[0]["Id"]),
+                    Password = dt.Rows[0]["Password"].ToString(),
+                    UserName = dt.Rows[0]["Username"].ToString(),
+                    UserRole = new UserRole { Id = Convert.ToInt32(dt.Rows[0]["RoleId"]), RoleName = dt.Rows[0]["RoleName"].ToString() }
+                };
             }
 
             return user;

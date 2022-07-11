@@ -152,6 +152,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,19 +160,20 @@
     <Compile Include="Models\Translate.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Implementation\SessionRepository.cs" />
-    <Compile Include="Repositories\ISessionRepository.cs" />
+    <Compile Include="Repostories\Abstract\ISessionRepository.cs" />
+    <Compile Include="Repostories\Concrete\SessionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\styles\css\datatables.css" />
     <Content Include="assets\styles\css\datatables.min.css" />
     <Content Include="assets\styles\css\font-awesome.css" />
     <Content Include="assets\styles\css\style-2.css" />
+    <Content Include="assets\styles\css\style-3.css" />
     <Content Include="assets\styles\css\style.css" />
     <Content Include="assets\styles\images\banner.jpg" />
+    <Content Include="assets\styles\images\bg-error.jpg" />
     <Content Include="assets\styles\images\bg.jpg" />
     <Content Include="assets\styles\js\datatables.js" />
-    <Content Include="assets\styles\js\datatables.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -197,7 +199,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="assets\styles\js\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -213,6 +214,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -234,10 +236,6 @@
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{01A4C1B6-C3DF-4AA9-BECF-9E1E2BF6531A}</Project>
       <Name>Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{EE7CBD70-C551-4791-96B8-17CCE1D3A1E4}</Project>
-      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{F9821B61-AE1E-42B8-872D-7B30B5EF4EA6}</Project>

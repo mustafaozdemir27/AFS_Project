@@ -1,5 +1,4 @@
 ﻿using Business.Abstract;
-using Core.Utilities.Results;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -20,10 +19,14 @@ namespace AFS_Project.Controllers
 
 
         // GET: Admin
-     
         public ActionResult Index()
         {
-            return View();
+            if (Session["userRole"] != null && Session["userRole"].ToString() == "Admin")
+            {
+                ViewBag.UserName = Session["UserName"];
+                return View();
+            }
+            return Redirect("/Error/Index");
         }
 
         public JsonResult GetSearchLogs()
@@ -31,10 +34,10 @@ namespace AFS_Project.Controllers
             var result = _searchLogService.GetAll();
             if (result.Success)
             {
-                return Json(result.Data,JsonRequestBehavior.AllowGet);
+                return Json(result.Data, JsonRequestBehavior.AllowGet);
             }
 
-            return Json("Hata",JsonRequestBehavior.DenyGet);
+            return Json("Hata", JsonRequestBehavior.DenyGet);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Core.Utilities.Results;
+using Business.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -18,7 +18,8 @@ namespace Business.Concrete
 
         public IResult Add(SearchLog searchLog)
         {
-            throw new NotImplementedException();
+            _searchLogDal.Add(searchLog);
+            return new SuccessResult();
         }
 
 
