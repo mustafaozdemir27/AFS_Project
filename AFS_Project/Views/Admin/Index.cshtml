@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body>
+<body >
 
 
 
@@ -18,14 +18,15 @@
         <br />
 
         <div class="row">
-            <button onclick="ShowTable()">
+            <button class="btn btn-primary" onclick="ShowTable()">
                 Show SearchingLog Table
             </button>
+            <a href="@Url.Action("Logout","Home")" class="btn btn-warning" style="float:right; margin-top:30px">Logout</a>
         </div>
         <br />
 
         <div class="row">
-            <table id="searchLogTable" class="display" style="width:100%; visibility:hidden;">
+            <table id="searchLogTable" class="display " style="width:100%; visibility:hidden;">
                 <thead>
                     <tr>
                         <th>Id</th>

@@ -54,11 +54,18 @@ namespace AFS_Project.Controllers
                 {
                     model.InputText = translationResult.Contents.Text;
                     model.TranslatedText = translationResult.Contents.Translated;
+                    model.Translation = translationResult.Contents.Translation;
                     return RedirectToAction("Index", model);
                 }
 
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return Redirect("/Account/Login");
         }
     }
 }

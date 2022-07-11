@@ -18,7 +18,6 @@ namespace AFS_Project.Controllers
         }
 
 
-        // GET: Admin
         public ActionResult Index()
         {
             if (Session["userRole"] != null && Session["userRole"].ToString() == "Admin")

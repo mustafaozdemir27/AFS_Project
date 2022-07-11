@@ -6,16 +6,17 @@
 <link href="~/assets/styles/css/style-2.css" rel="stylesheet" />
 
 <body>
+    <a href="@Url.Action("Logout","Home")" class="btn btn-warning" style="float:right; margin-top:30px">Logout</a>
     <h1 class="agileits w3 wthree w3-agile w3-agileits agileinfo agile">Yodish Translator</h1>
     <div class="content-w3ls agileits w3 wthree w3-agile w3-agileits agileinfo agile">
         <form action="@Url.Action("Translate","Home")" method="post" class="form-agileits">
             <h2>Translate</h2>
 
-                <input type="text" id="username" name="username" disabled value="@ViewBag.UserName">
-                <textarea id="message" name="inputText" placeholder="YOUR MESSAGE" title="Please enter Your Input Text">@Model.InputText</textarea>
-                <textarea id="message" name="translatedText" placeholder="Translated Text" title="Translated Text" disabled>@Model.TranslatedText</textarea>
-                <input type="submit" class="sign-in" value="Submit">
-
+            <input type="text" id="username" name="username" disabled value="@ViewBag.UserName">
+            <textarea id="message" name="inputText" placeholder="YOUR MESSAGE" title="Please enter Your Input Text">@Model.InputText</textarea>
+            <textarea id="message" name="translatedText" placeholder="Translated Text" title="Translated Text" disabled>@Model.TranslatedText</textarea>
+            <textarea id="message" name="translationType" placeholder="Translation Type" title="Translation Type" disabled>@Model.Translation</textarea>
+            <input type="submit" class="sign-in" value="Submit">
 
         </form>
     </div>
